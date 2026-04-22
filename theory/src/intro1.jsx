@@ -18,6 +18,9 @@ import ReshapeSection from './sections/ReshapeSection';
 import JoinSplitSection from './sections/JoinSplitSection';
 import BroadcastSection from './sections/BroadcastSection';
 import DataTypeSection from './sections/DataTypeSection';
+import CpuGpuSection from './sections/CpuGpuSection';
+import AutoDiff from './sections/AutoDiff';
+import ComputationGraphSection from './sections/ComputationGraphSection';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('intro');
@@ -35,6 +38,9 @@ export default function App() {
     { id: 'join-split', label: 'Joining & Splitting', icon: ArrowRight },
     { id: 'broadcast', label: 'Broadcasting', icon: LineChart },
     { id: 'datatype', label: 'Data Types', icon: CheckCircle2 },
+    { id: 'cpu-gpu', label: 'CPU vs GPU', icon: Cpu },
+    { id: 'autodiff', label: 'Automatic Differentiation', icon: Activity },
+    { id: 'computation-graph', label: 'Computation Graph', icon: GitBranch },
   ];
 
   return (
@@ -79,6 +85,9 @@ export default function App() {
           {activeTab === 'join-split' && <JoinSplitSection />}
           {activeTab === 'broadcast' && <BroadcastSection />}
           {activeTab === 'datatype' && <DataTypeSection />}
+          {activeTab === 'cpu-gpu' && <CpuGpuSection />}
+          {activeTab === 'autodiff' && <AutoDiff />}
+          {activeTab === 'computation-graph' && <ComputationGraphSection />}
         </main>
       </div>
     </div>
