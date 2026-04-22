@@ -16,6 +16,7 @@ import NumpySection from './sections/NumpySection';
 import IndexingSection from './sections/IndexingSection';
 import ReshapeSection from './sections/ReshapeSection';
 import JoinSplitSection from './sections/JoinSplitSection';
+import BroadcastSection from './sections/BroadcastSection';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('intro');
@@ -31,6 +32,7 @@ export default function App() {
     { id: 'indexing', label: 'Indexing & Slicing', icon: Scissors },
     { id: 'reshape', label: 'Reshaping & Rearranging', icon: ArrowRight },
     { id: 'join-split', label: 'Joining & Splitting', icon: ArrowRight },
+    { id: 'broadcast', label: 'Broadcasting', icon: LineChart },
   ];
 
   return (
@@ -73,6 +75,7 @@ export default function App() {
           {activeTab === 'indexing' && <IndexingSection />}
           {activeTab === 'reshape' && <ReshapeSection />}
           {activeTab === 'join-split' && <JoinSplitSection />}
+          {activeTab === 'broadcast' && <BroadcastSection />}
         </main>
       </div>
     </div>
