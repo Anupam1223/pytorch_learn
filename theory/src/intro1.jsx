@@ -21,6 +21,7 @@ import DataTypeSection from './sections/DataTypeSection';
 import CpuGpuSection from './sections/CpuGpuSection';
 import AutoDiff from './sections/AutoDiff';
 import ComputationGraphSection from './sections/ComputationGraphSection';
+import TensorGradientCalculateSection from './sections/TensorGradientCalculateSection';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('intro');
@@ -41,6 +42,7 @@ export default function App() {
     { id: 'cpu-gpu', label: 'CPU vs GPU', icon: Cpu },
     { id: 'autodiff', label: 'Automatic Differentiation', icon: Activity },
     { id: 'computation-graph', label: 'Computation Graph', icon: GitBranch },
+    { id: 'tensor-gradient', label: 'Tensor Gradient Calculation', icon: Code },
   ];
 
   return (
@@ -88,6 +90,7 @@ export default function App() {
           {activeTab === 'cpu-gpu' && <CpuGpuSection />}
           {activeTab === 'autodiff' && <AutoDiff />}
           {activeTab === 'computation-graph' && <ComputationGraphSection />}
+          {activeTab === 'tensor-gradient' && <TensorGradientCalculateSection />}
         </main>
       </div>
     </div>
