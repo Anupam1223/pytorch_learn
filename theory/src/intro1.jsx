@@ -17,6 +17,7 @@ import IndexingSection from './sections/IndexingSection';
 import ReshapeSection from './sections/ReshapeSection';
 import JoinSplitSection from './sections/JoinSplitSection';
 import BroadcastSection from './sections/BroadcastSection';
+import DataTypeSection from './sections/DataTypeSection';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('intro');
@@ -33,6 +34,7 @@ export default function App() {
     { id: 'reshape', label: 'Reshaping & Rearranging', icon: ArrowRight },
     { id: 'join-split', label: 'Joining & Splitting', icon: ArrowRight },
     { id: 'broadcast', label: 'Broadcasting', icon: LineChart },
+    { id: 'datatype', label: 'Data Types', icon: CheckCircle2 },
   ];
 
   return (
@@ -76,6 +78,7 @@ export default function App() {
           {activeTab === 'reshape' && <ReshapeSection />}
           {activeTab === 'join-split' && <JoinSplitSection />}
           {activeTab === 'broadcast' && <BroadcastSection />}
+          {activeTab === 'datatype' && <DataTypeSection />}
         </main>
       </div>
     </div>
