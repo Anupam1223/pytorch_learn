@@ -22,6 +22,11 @@ import CpuGpuSection from './sections/CpuGpuSection';
 import AutoDiff from './sections/AutoDiff';
 import ComputationGraphSection from './sections/ComputationGraphSection';
 import TensorGradientCalculateSection from './sections/TensorGradientCalculateSection';
+import BackPropagationSection from './sections/BackPropagationSection';
+import AccessingGradientSection from './sections/AccessingGradientSection';
+import DisableGradientsSection from './sections/DisableGradientsSection';
+import GradientAccumulationSection from './sections/GradientAccumulationSection';
+import TorchNNModuleSection from './sections/TorchNNModuleSection';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('intro');
@@ -43,14 +48,19 @@ export default function App() {
     { id: 'autodiff', label: 'Automatic Differentiation', icon: Activity },
     { id: 'computation-graph', label: 'Computation Graph', icon: GitBranch },
     { id: 'tensor-gradient', label: 'Tensor Gradient Calculation', icon: Code },
+    { id: 'backpropagation', label: 'Backpropagation', icon: Play },
+    { id: 'access', label: 'Accessing Gradients', icon: Terminal },
+    { id: 'disable-gradients', label: 'Disabling Gradients', icon: AlertTriangle },
+    { id: 'gradient-accumulation', label: 'Gradient Accumulation', icon: LineChart },
+    { id: 'torch-nn', label: 'Torch NN Module', icon: Layers },
   ];
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 p-4 md:p-6 font-sans">
       <div className="max-w-6xl mx-auto">
         <header className="mb-8 text-center">
-          <h1 className="text-4xl font-extrabold text-slate-900 mb-2 tracking-tight">Introduction to Tensors</h1>
-          <p className="text-lg text-slate-600">The core data structure of PyTorch</p>
+          <h1 className="text-4xl font-extrabold text-slate-900 mb-2 tracking-tight">Introduction to Pytorch</h1>
+          <p className="text-lg text-slate-600">All Topics</p>
         </header>
 
         <div className="flex flex-wrap justify-center gap-2 mb-8">
@@ -91,6 +101,11 @@ export default function App() {
           {activeTab === 'autodiff' && <AutoDiff />}
           {activeTab === 'computation-graph' && <ComputationGraphSection />}
           {activeTab === 'tensor-gradient' && <TensorGradientCalculateSection />}
+          {activeTab === 'backpropagation' && <BackPropagationSection />}
+          {activeTab === 'access' && <AccessingGradientSection />}
+          {activeTab === 'disable-gradients' && <DisableGradientsSection />}
+          {activeTab === 'gradient-accumulation' && <GradientAccumulationSection />}
+          {activeTab === 'torch-nn' && <TorchNNModuleSection />}
         </main>
       </div>
     </div>
