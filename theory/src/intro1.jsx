@@ -27,6 +27,8 @@ import AccessingGradientSection from './sections/AccessingGradientSection';
 import DisableGradientsSection from './sections/DisableGradientsSection';
 import GradientAccumulationSection from './sections/GradientAccumulationSection';
 import TorchNNModuleSection from './sections/TorchNNModuleSection';
+import CustomArchitectureSection from './sections/CustomArchitectureSection';
+import ActivationFunctionSection from './sections/ActivationFunctionSection';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('intro');
@@ -53,6 +55,8 @@ export default function App() {
     { id: 'disable-gradients', label: 'Disabling Gradients', icon: AlertTriangle },
     { id: 'gradient-accumulation', label: 'Gradient Accumulation', icon: LineChart },
     { id: 'torch-nn', label: 'Torch NN Module', icon: Layers },
+    { id: 'custom-architecture', label: 'Custom Architectures', icon: Network },
+    { id: 'activation-functions', label: 'Activation Functions', icon: Database },
   ];
 
   return (
@@ -106,6 +110,8 @@ export default function App() {
           {activeTab === 'disable-gradients' && <DisableGradientsSection />}
           {activeTab === 'gradient-accumulation' && <GradientAccumulationSection />}
           {activeTab === 'torch-nn' && <TorchNNModuleSection />}
+          {activeTab === 'custom-architecture' && <CustomArchitectureSection />}
+          {activeTab === 'activation-functions' && <ActivationFunctionSection />}
         </main>
       </div>
     </div>
