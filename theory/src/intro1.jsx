@@ -29,6 +29,9 @@ import GradientAccumulationSection from './sections/GradientAccumulationSection'
 import TorchNNModuleSection from './sections/TorchNNModuleSection';
 import CustomArchitectureSection from './sections/CustomArchitectureSection';
 import ActivationFunctionSection from './sections/ActivationFunctionSection';
+import SequentialContainerSection from './sections/SequentialContainerSection';
+import LossFunctionSection from './sections/LossFunctionSection';
+import OptimizerSection from './sections/OptimizerSection';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('intro');
@@ -57,6 +60,9 @@ export default function App() {
     { id: 'torch-nn', label: 'Torch NN Module', icon: Layers },
     { id: 'custom-architecture', label: 'Custom Architectures', icon: Network },
     { id: 'activation-functions', label: 'Activation Functions', icon: Database },
+    { id: 'sequential-container', label: 'Sequential Container', icon: Database },
+    { id: 'loss-function', label: 'Loss Functions', icon: Database },
+    { id: 'optimizer', label: 'Optimizers', icon: Database },
   ];
 
   return (
@@ -112,6 +118,9 @@ export default function App() {
           {activeTab === 'torch-nn' && <TorchNNModuleSection />}
           {activeTab === 'custom-architecture' && <CustomArchitectureSection />}
           {activeTab === 'activation-functions' && <ActivationFunctionSection />}
+          {activeTab === 'sequential-container' && <SequentialContainerSection />}
+          {activeTab === 'loss-function' && <LossFunctionSection />}
+          {activeTab === 'optimizer' && <OptimizerSection />}
         </main>
       </div>
     </div>
