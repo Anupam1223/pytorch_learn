@@ -35,6 +35,8 @@ import OptimizerSection from './sections/OptimizerSection';
 import DataLoaderSection from './sections/DataLoaderSection';
 import DatasetSection from './sections/DatasetSection';
 import TransformationSection from './sections/TransformationSection';
+import DataloaderDetailSection from './sections/DataloaderDetailSection';
+import DataloaderCustomizeSection from './sections/DataloaderCustomizeSection';
 
 
 export default function App() {
@@ -70,68 +72,78 @@ export default function App() {
     { id: 'data-loader', label: 'DataLoader and Dataset', icon: Database },
     { id: 'dataset', label: 'Dataset', icon: Database },
     { id: 'transformation', label: 'Transformation', icon: Database },
+    { id: 'dataloader-detail', label: 'Dataloader Detail', icon: Database },
+    { id: 'dataloader-customize', label: 'Dataloader Customize', icon: Database },
   ];
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 p-4 md:p-6 font-sans">
-      <div className="max-w-6xl mx-auto">
-        <header className="mb-8 text-center">
+      <div className="max-w-[1400px] mx-auto">
+        <header className="mb-8 text-center md:text-left md:ml-64">
           <h1 className="text-4xl font-extrabold text-slate-900 mb-2 tracking-tight">Introduction to Pytorch</h1>
           <p className="text-lg text-slate-600">All Topics</p>
         </header>
 
-        <div className="flex flex-wrap justify-center gap-2 mb-8">
-          {tabs.map((tab) => {
-            const Icon = tab.icon;
-            const isActive = activeTab === tab.id;
-            return (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${
-                  isActive 
-                    ? 'bg-blue-600 text-white shadow-md transform scale-105' 
-                    : 'bg-white text-slate-600 hover:bg-blue-50 border border-slate-200 hover:text-blue-600'
-                }`}
-              >
-                <Icon size={16} />
-                {tab.label}
-              </button>
-            );
-          })}
-        </div>
+        <div className="flex flex-col md:flex-row gap-6">
+          {/* Sidebar Navigation */}
+          <aside className="w-full md:w-64 flex-shrink-0 overflow-y-auto max-h-[calc(100vh-150px)] pr-2 pb-8 custom-scrollbar">
+            <div className="flex flex-col gap-1.5">
+              {tabs.map((tab) => {
+                const Icon = tab.icon;
+                const isActive = activeTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 text-left ${
+                      isActive 
+                        ? 'bg-blue-600 text-white shadow-md' 
+                        : 'text-slate-600 hover:bg-white hover:shadow-sm border border-transparent hover:border-slate-200'
+                    }`}
+                  >
+                    <Icon size={18} className={isActive ? 'text-blue-100' : 'text-slate-400'} />
+                    {tab.label}
+                  </button>
+                );
+              })}
+            </div>
+          </aside>
 
-        <main className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8 min-h-[500px]">
-          {activeTab === 'intro' && <IntroSection />}
-          {activeTab === 'dimensions' && <DimensionsSection />}
-          {activeTab === 'dl' && <DeepLearningSection />}
-          {activeTab === 'why' && <WhyPyTorchSection />}
-          {activeTab === 'creation' && <CreationSection />}
-          {activeTab === 'operations' && <OperationsSection />}
-          {activeTab === 'numpy' && <NumpySection />}
-          {activeTab === 'indexing' && <IndexingSection />}
-          {activeTab === 'reshape' && <ReshapeSection />}
-          {activeTab === 'join-split' && <JoinSplitSection />}
-          {activeTab === 'broadcast' && <BroadcastSection />}
-          {activeTab === 'datatype' && <DataTypeSection />}
-          {activeTab === 'cpu-gpu' && <CpuGpuSection />}
-          {activeTab === 'autodiff' && <AutoDiff />}
-          {activeTab === 'computation-graph' && <ComputationGraphSection />}
-          {activeTab === 'tensor-gradient' && <TensorGradientCalculateSection />}
-          {activeTab === 'backpropagation' && <BackPropagationSection />}
-          {activeTab === 'access' && <AccessingGradientSection />}
-          {activeTab === 'disable-gradients' && <DisableGradientsSection />}
-          {activeTab === 'gradient-accumulation' && <GradientAccumulationSection />}
-          {activeTab === 'torch-nn' && <TorchNNModuleSection />}
-          {activeTab === 'custom-architecture' && <CustomArchitectureSection />}
-          {activeTab === 'activation-functions' && <ActivationFunctionSection />}
-          {activeTab === 'sequential-container' && <SequentialContainerSection />}
-          {activeTab === 'loss-function' && <LossFunctionSection />}
-          {activeTab === 'optimizer' && <OptimizerSection />}
-          {activeTab === 'data-loader' && <DataLoaderSection />}
-          {activeTab === 'dataset' && <DatasetSection />}
-          {activeTab === 'transformation' && <TransformationSection />}
-        </main>
+          {/* Main Content Area */}
+          <main className="flex-1 bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8 min-h-[500px]">
+            {activeTab === 'intro' && <IntroSection />}
+            {activeTab === 'dimensions' && <DimensionsSection />}
+            {activeTab === 'dl' && <DeepLearningSection />}
+            {activeTab === 'why' && <WhyPyTorchSection />}
+            {activeTab === 'creation' && <CreationSection />}
+            {activeTab === 'operations' && <OperationsSection />}
+            {activeTab === 'numpy' && <NumpySection />}
+            {activeTab === 'indexing' && <IndexingSection />}
+            {activeTab === 'reshape' && <ReshapeSection />}
+            {activeTab === 'join-split' && <JoinSplitSection />}
+            {activeTab === 'broadcast' && <BroadcastSection />}
+            {activeTab === 'datatype' && <DataTypeSection />}
+            {activeTab === 'cpu-gpu' && <CpuGpuSection />}
+            {activeTab === 'autodiff' && <AutoDiff />}
+            {activeTab === 'computation-graph' && <ComputationGraphSection />}
+            {activeTab === 'tensor-gradient' && <TensorGradientCalculateSection />}
+            {activeTab === 'backpropagation' && <BackPropagationSection />}
+            {activeTab === 'access' && <AccessingGradientSection />}
+            {activeTab === 'disable-gradients' && <DisableGradientsSection />}
+            {activeTab === 'gradient-accumulation' && <GradientAccumulationSection />}
+            {activeTab === 'torch-nn' && <TorchNNModuleSection />}
+            {activeTab === 'custom-architecture' && <CustomArchitectureSection />}
+            {activeTab === 'activation-functions' && <ActivationFunctionSection />}
+            {activeTab === 'sequential-container' && <SequentialContainerSection />}
+            {activeTab === 'loss-function' && <LossFunctionSection />}
+            {activeTab === 'optimizer' && <OptimizerSection />}
+            {activeTab === 'data-loader' && <DataLoaderSection />}
+            {activeTab === 'dataset' && <DatasetSection />}
+            {activeTab === 'transformation' && <TransformationSection />}
+            {activeTab === 'dataloader-detail' && <DataloaderDetailSection />}
+            {activeTab === 'dataloader-customize' && <DataloaderCustomizeSection />}
+          </main>
+        </div>
       </div>
     </div>
   );
