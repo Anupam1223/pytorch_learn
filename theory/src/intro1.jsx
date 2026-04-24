@@ -32,6 +32,10 @@ import ActivationFunctionSection from './sections/ActivationFunctionSection';
 import SequentialContainerSection from './sections/SequentialContainerSection';
 import LossFunctionSection from './sections/LossFunctionSection';
 import OptimizerSection from './sections/OptimizerSection';
+import DataLoaderSection from './sections/DataLoaderSection';
+import DatasetSection from './sections/DatasetSection';
+import TransformationSection from './sections/TransformationSection';
+
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('intro');
@@ -63,6 +67,9 @@ export default function App() {
     { id: 'sequential-container', label: 'Sequential Container', icon: Database },
     { id: 'loss-function', label: 'Loss Functions', icon: Database },
     { id: 'optimizer', label: 'Optimizers', icon: Database },
+    { id: 'data-loader', label: 'DataLoader and Dataset', icon: Database },
+    { id: 'dataset', label: 'Dataset', icon: Database },
+    { id: 'transformation', label: 'Transformation', icon: Database },
   ];
 
   return (
@@ -121,6 +128,9 @@ export default function App() {
           {activeTab === 'sequential-container' && <SequentialContainerSection />}
           {activeTab === 'loss-function' && <LossFunctionSection />}
           {activeTab === 'optimizer' && <OptimizerSection />}
+          {activeTab === 'data-loader' && <DataLoaderSection />}
+          {activeTab === 'dataset' && <DatasetSection />}
+          {activeTab === 'transformation' && <TransformationSection />}
         </main>
       </div>
     </div>
