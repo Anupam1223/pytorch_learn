@@ -37,6 +37,15 @@ import DatasetSection from './sections/DatasetSection';
 import TransformationSection from './sections/TransformationSection';
 import DataloaderDetailSection from './sections/DataloaderDetailSection';
 import DataloaderCustomizeSection from './sections/DataloaderCustomizeSection';
+import TrainingLoopSection from './sections/TrainingLoopSection';
+import IteratingDataLoaderSection from './sections/IteratingDataLoaderSection';
+import ForwardPassAndLossSection from './sections/ForwardPassAndLossSection';
+import BackwardOptimizerSection from './sections/BackwardOptimizerSection';
+import EvaluationLoopSection from './sections/EvaluationLoopSection';
+import SaveLoadSection from './sections/SaveLoadSection';
+import CompleteTrainingSection from './sections/CompleteTrainingSection';
+import CommonErrorSection from './sections/CommonErrorSection';
+import InspectGradientSection from './sections/InspectGradientSection';
 
 
 export default function App() {
@@ -74,6 +83,15 @@ export default function App() {
     { id: 'transformation', label: 'Transformation', icon: Database },
     { id: 'dataloader-detail', label: 'Dataloader Detail', icon: Database },
     { id: 'dataloader-customize', label: 'Dataloader Customize', icon: Database },
+    { id: 'training-loop', label: 'Training Loop', icon: Database },
+    { id: 'iterating-loader', label: 'Iterating Loader', icon: Database },
+    { id: 'forward-pass-loss', label: 'Forward Pass & Loss', icon: Database },
+    { id: 'backward-optimizer', label: 'Backward & Optimizer', icon: Database },
+    { id: 'evaluation-loop', label: 'Evaluation Loop', icon: Database },
+    { id: 'save-load', label: 'Saving & Loading Models', icon: Database },
+    { id: 'complete-training', label: 'Complete Training Example', icon: Database },
+    { id: 'common-errors', label: 'Common Errors', icon: Database },
+    { id: 'inspect-gradient', label: 'Inspecting Gradients', icon: Database },
   ];
 
   return (
@@ -142,6 +160,15 @@ export default function App() {
             {activeTab === 'transformation' && <TransformationSection />}
             {activeTab === 'dataloader-detail' && <DataloaderDetailSection />}
             {activeTab === 'dataloader-customize' && <DataloaderCustomizeSection />}
+            {activeTab === 'training-loop' && <TrainingLoopSection />}
+            {activeTab === 'iterating-loader' && <IteratingDataLoaderSection />}
+            {activeTab === 'forward-pass-loss' && <ForwardPassAndLossSection />}
+            {activeTab === 'backward-optimizer' && <BackwardOptimizerSection />}
+            {activeTab === 'evaluation-loop' && <EvaluationLoopSection />}
+            {activeTab === 'save-load' && <SaveLoadSection />}
+            {activeTab === 'complete-training' && <CompleteTrainingSection />}
+            {activeTab === 'common-errors' && <CommonErrorSection />}
+            {activeTab === 'inspect-gradient' && <InspectGradientSection />}
           </main>
         </div>
       </div>
